@@ -13,7 +13,8 @@ Traveller.prototype.getJourneyEndLocations = function () {
 };
 
 Traveller.prototype.getModesOfTransport = function () {
-
+  let result = this.journeys.map(j=>j.transport);
+  return result;
 };
 
 Traveller.prototype.getJourneysByTransport = function (transport) {
