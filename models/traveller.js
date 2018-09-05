@@ -18,15 +18,20 @@ Traveller.prototype.getModesOfTransport = function () {
 };
 
 Traveller.prototype.getJourneysByTransport = function (transport) {
-
+  let result = this.journeys.filter(j => j.transport === transport);
+  return result;
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
-
+  let result = this.journeys.filter(j => j.distance >= minDistance);
+  return result;
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
-
+  let lengthArray = this.journeys.map(j => j.distance);
+  let sum = (total, currentValue) => total + currentValue;
+  let result = lengthArray.reduce(sum);
+  return result;
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
